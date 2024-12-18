@@ -1,0 +1,1426 @@
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- LES VARIABLES JAVA SCRIPT 
+    <script>
+            const nombre = 10            
+            const chaineDeCaractère = 'Lionel MESSI '         
+            const Tableau = [13,14,8,9,         //Créer un tableau
+                            'hello',
+                            [1,2,3]
+            ]
+            const joueurDeFoot = {                //Créer un objet 
+                    firstname: 'Lionel',
+                    lastname: 'MESSI',
+                    age: 36,
+                    notes: [98, 88, 95],
+                    poste: {                          // Créer un objet dans un objet
+                        name: 'Avant-centre',
+                        numéro: 10,
+                        cooupeDuMonde: true            // variable de type booléens
+                    },      
+            }
+            const valeurInexistante = undefined
+            const NotaNumber = NaN
+            const Null = null                       //représente l'absence intentionnelle de toute valeur
+
+    </script>
+-->
+
+<!-- LES CONDITIONS 
+
+<script>
+    const age = 18
+    const pays = 'FR'
+    if((age >= 18)&&(age < 30)){
+        console.log ('Vous avez plus 18 ans et moins de 30 ans ')
+    }
+    switch (pays) {
+        case 'FR' :
+            console.log ('Je suis en France')
+            break
+        case 'US' :
+            console.log ('Je suis au USA')
+            break
+    }
+</script>
+-->
+
+<!--DEBUT EXERCICE 
+<script>
+/*On souhaite faire un système de recomendation basé sur l'age de l'user 
+
+FILM 1 : Lilo et Stitch    ->   -13 ans
+FILM 2 : Matrix            ->   13 et 18 ans
+FILM 3 : Evil Dead         ->   +18 ans 
+
+        const age = prompt ('Quel est votre age ?')
+        if (age < 13 ){
+            console.log ('Nous vous conseillons de regarder Lilo et Stitch')
+        }else if((age>=13) && (age<18)){
+            console.log ('Nous vous conseillons de regarder Matrix')
+        }else if(age >= 18){
+            console.log ('Nous vous conseillons de regarder Evil Dead')
+        }
+*/
+</script>
+-->
+
+
+<!-- Meme Exercice qu'au dessus mais avec les années de naissance 
+<script>
+        const year = 2022
+        const birthyear = prompt('What is ur birthday ?')
+        if ((year-birthyear) < 13 ){
+            console.log ('Nous vous conseillons de regarder Lilo et Stitch')
+        }else if((year-birthyear)<18){
+            console.log ('Nous vous conseillons de regarder Matrix')
+        }else {
+            console.log ('Nous vous conseillons de regarder Evil Dead')
+        }
+</script>
+-->
+
+<!-- Exercice Condition  "A x B = E est positive / négative " 
+<script> 
+ /*
+const A = prompt ('Multiplication à 2 facteurs(A x B) \n Saisir la valeur de A')
+const B = prompt ('Saisir la valeur de B')
+const E = A * B
+let signe           // Permet de changer l'etat d'une variable ce que const ne peut pas faire 
+    if(isNaN(E)){   // Permet de verifier si la veleur E est undefined 
+        console.log (`Operation impossible ${A} x ${B} = ${E}`)
+    }else{
+        if (E>0){
+            signe = 'positif'   
+        }else{
+        signe = 'négatif'
+        }
+    console.log (`${A} x ${B} = ${E}. Le résultat est ${signe}`) 
+    }
+        */
+
+    // Meme procédé avec le ternaire ( raccourcis/optimise les conditions )
+   
+    const a =   prompt ('Multiplication à 2 facteurs(a x b) \n Saisir la valeur de a')
+    const b=    prompt ('Saisir la valeur de b')
+    const r=    a*b
+    let s 
+    // condition ? <expression si vrai> : <expression si faux>
+    (isNaN(r)?(console.log (`Operation impossible ${a} x ${b} = ${r}`)):
+    ((r > 0 ? s = 'positif' : s = 'négatif')))
+    console.log (`${a} x ${b} = ${r}. Le résultat est ${s}`)
+
+</script>
+-->
+
+<!--Les boucles
+<script>
+//BOUCLE TANT QUE 
+    let i= 0 
+    while (i < 10 ){
+        console.log ('bonjour')
+        i = i + 1
+    }
+</script>
+
+-->
+
+<!--BOUCLE FOR 
+<script>
+    const notes = [12, 13, 16,8]
+    for (let i=0; i < notes.length; i++){
+        console.log(notes[i])
+    }
+
+</script>
+-->
+
+<!-- Le FOR OF 
+<script>
+    //for of permet de parcourir des élements itérable 
+    // tableau / string / arguments
+    const barcaTeam = ['Messi','Villa','Iniesta','Xavi']
+    for (let player of barcaTeam){ 
+        console.log(player)
+    }
+
+    const phrase = 'CRISTIANO'
+    for(let w of phrase){
+        console.log(w);
+    }
+</script>
+-->
+
+
+<!--FOR IN 
+<script>
+    //for in permet de manipuler des propriétés énumérable 
+    //Objet / chaine de carac / tableau
+    const notes = {
+        Messi: 93,
+        Benzema:89,
+        Ronaldo: 94,
+        Neymar:91,
+    }
+    for (let i in notes){  
+        console.log(i,notes[i])
+    }
+</script>
+-->
+
+
+<!--
+    On demande à l'utilisateur un chiffre entre 0 et 10
+        On verrifie Si le chiffre est bien entre 0 et 10
+        Si NON on renvoi un message d'erreur
+        Si OUI on affiche tous les chifffres inférieur à la veleur de notre chiffre 
+        ex: 5 -> 4 , 3 , 2 , 1
+  
+
+<script>
+    function dec(y){
+        for(let i=y;i>=0;i--){
+            console.log(i)
+    }
+    }
+    const UserNum = prompt('Entre un nombre entre 0 et 10')
+    UserNum<10 && UserNum>0 ? dec(UserNum):console.log('Erreur')
+</script>
+-->  
+
+<!-- Ma version 5
+
+<script>
+
+    const val = prompt('Rentrer un chiffre entre 0 et 10')
+    if((val<=10)&&(val>=0)){
+        for(i=0;i<val;i++){
+            let x = val - i
+            console.log(`${x}`)
+        }
+
+    }else{
+        console.log(`Votre chiffre ${val} ne se trouve pas dans la plage indiqué entre 0 et 10`)
+    }
+</script>
+-->
+
+
+<!--Version corigé 
+<script>
+    let chiffre = prompt('Entrez un nombre')
+    if (chiffre > 10 || chiffre < 0){
+        console.log("Le nombre n'est pas entre 0 et 10")
+    }else {
+        for (let i = chiffre; i >= 0; i--)
+        console.log(i)
+    }
+
+</script>
+-->
+<!--
+<script>
+/*  Jeu du guess the number 
+    On initialise un nombre à deviner 
+    Tant que l'utilisateur n'a pas trouvé le nombre il doit retenter 
+    */
+function forWin(n,win){
+    while(n!==win){
+        n= prompt('retentez votre chance')*1 
+    }
+    return console.log('number found, well played')
+}
+const userNum = ('Devinez un nombre')
+const gameNum =91
+forWin(userNum,gameNum)
+</script>
+-->
+
+
+
+<!-- Jeu du guess the number 
+    on initialise un nombre à deviner 
+    Tant que l'utilisateur n'a pas trouvé le nombre il doit retenter 
+
+<script>
+    let guess = 8
+    let x
+   while (guess !== x ){
+    x = prompt('saisisez un nombre')*1
+   }
+   console.log('bravo c\'est ca')
+</script>
+-->
+
+
+
+<!-- LES FONCTIONS -->
+<!--
+<script>
+    function canDrive (age, pays ){
+        if(
+            (age>=18 && pays === 'FR') ||
+            (age >= 16 && pays === 'US')
+        ){
+            return true
+        }
+            return false
+    }
+
+    console.log(canDrive(18, 'FR'))
+
+</script>
+-->
+
+<!--EXERCICE AVEC LES FONCTIONS 
+
+        //On créee un nombre aléatoire entre 0 et 10
+        // 3 éssais pour deviner le nombre
+        // isRight(n)   fonction qui prend en paramètre un nombre 
+                        et qui renvoie True or False si l'utilisateur a juste ou non 
+        // guess ()     fonction qui prend aucun parametre 
+                        et demande à l'user de choisir un nombre
+                        et renvoie true si il a trouvé et false si non 
+-->
+<!--
+<script>
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * (max + 1 ));
+}
+    const R = getRandomInt(10)
+
+    function isRight (n){
+       if(R === n){
+        return true
+       }else {
+        return false
+       }
+    }
+
+    function guess(){
+        const u = prompt ('Saisissez un nombre')*1
+        return isRight(u)
+    }
+
+    console.log(R)
+
+    for (i = 0 ; i < 3 ; i++){
+        if(guess()){
+            console.log ('Bravo')
+            break;
+
+        }else if(i === 2){
+            console.log('Vous aves perdu')
+        }
+    }
+</script>
+
+-->
+
+<!-- Fonction qui vérifie si un nombre n est premier
+n est premier si il est divisible si et seulement  
+par 1 et lui meme n
+
+-->
+<!--
+<script>
+
+const u = prompt ('Entrez un nombre pour savoir si il est premier')*1
+    
+function isPremier(n){
+        if(n === 0 || n === 1 ){
+            return false  }
+            
+            for(  i = 2 ; i <= (n-1) ; i++){
+                if((n % i ) === 0 ){
+                    console.log('Ce chiffre n\'est pas un nombre premier')
+                    return false
+                }
+           }
+           console.log('Ce chiffre est un nombre premier')
+        
+}
+       
+console.log (isPremier(u))
+
+
+</script>
+-->
+
+<!-- Fonction verifie si un mot et un palindrome-->
+
+<!--
+
+<script>
+
+const user = prompt('Saisissez un mot')
+newUser = user.toLowerCase()
+console.log(user,newUser)
+
+function reverse (s){
+    return s.split('').reverse().join('')
+    
+}
+
+const Reverse = reverse(newUser)
+
+function isPal (m){
+    return m === Reverse 
+}
+
+if(isPal(newUser)){
+    console.log('Ce mot est un palindrome')
+} else{
+    console.log ('ce mot n\'est pas un palindrome')
+}
+
+</script>
+-->
+
+
+<!-- Fonction Calcule la moyenne d'un tableau d'eleve
+    + les classes par odre Décroissant 
+
+    // Objet qui prend le nom des élèves + tableau de leurs notes
+        On veut la moyenne de chaque élève
+     // On organise les élève en fonction de la moyenne la plus élevée
+     // On affiche le top 3 des élève + les nom séparé par des ","
+
+
+
+
+<script>
+        /* Nous avons la variable students déclaré en tant que classe qui comprend un tableau(5) 
+         avec le nom et les notes de chaque elèves dont les notes sont aussi sous forme de tableau */
+    const students = [
+        {
+            name : 'John',
+            notes: [1,20,18,19,12]
+        },
+        {
+            name : 'Jane',
+            notes: [17,18,20,13,15]
+        },
+        {
+            name : 'Sophie',
+            notes: [17,12,14,15,13]
+        },
+        {
+            name : 'Marc',
+            notes: [2,3,5,8,9]
+        },
+        {
+            name : 'Manon',
+            notes: [18,17,18,19,12]
+        },
+    ]
+    
+    /* La fonction moyenne qui permet de calculer la moyenne de chaque élèves 
+        la fonction prendra en paramètre les notes des élèves grace à la boucle for 
+        on crée la variable sum qui sera la valeur de retour 
+        on utilise la boucle for pour parcourir le tableau de notes de chaque élève
+        la variable somme qui vaut 0 sera alors incrémenté a chaque fois par la note + sa nouvelle valeur 
+        à la fin on retourne la somme total des notes que l'on divise par la taille du tableau de note grace à la methode length*/
+        
+
+        function moyenne(notes){
+            let sum = 0
+            for (let note of notes){
+                sum = sum + note
+            }
+            return sum / notes.length
+        }
+
+/*  La fonction compareStudent qui se couple à la methode sort permet de classer les notes de manière soit croissante ou décroissante 
+    il faut retenir que si a>b = 1 /  a<b = -1  / a == b  = 0   soit les résultat couplé à sort permettent de faire le classement
+        bonus: dans b.moyenne  moyenne est un à l'instar de note et name est une nouvelle clé de l'objet students
+    */
+
+
+        function compareStudent(a, b){
+            return b.moyenne - a.moyenne
+        }
+/* La boucle for ci-dessous couplé à la fonction formaStudent va nous permttre de gerer l'affichage de la console 
+        On va commencé par rajouter la nouvelle clé moyenne on la definissant par la fonction moyenne avec pour parametre student.note ctd les notes de l'élève en question 
+        Puis dans le but d'afficher la meilleur et la pire note on va créer les 2 clées student.worst et student.best qui admeteront comme methode Math.min/max(...array)
+        array ici sera remplacé par student.note 
+        pour résumer si l'on veut parcourir un tableau de VALEUR , la boucle for of est très importante, ensuite il faudra savoir gérer l'appelle des fonctions ou methodes suivant les nouvelles clées 
+*/
+
+        for (let student of students){
+            student.moyenne = moyenne(student.notes)
+            student.worst =  Math.min(...student.notes)
+            student.best = Math.max(...student.notes)
+        }
+/*la fonction sort ici qui permet d'etablir le classement des moyennes des élèves 
+sort() dans un tableau sera toujours couplé à un fonction comparaison (a-b)*/
+
+        students.sort(compareStudent)
+
+        /*
+        La fonction formatStudent à pour but d'afficher le nom de l'etudiant avec sa moyenne et sa meilleur/pire note 
+        pour cela on prend en paramètre student (classe qui permet le parcours du tableau grace à la boucle for)
+        et ensuite on a juste à lui ajouté les clées créer au dessus tel que moyenne best et worst 
+        */
+
+        function formatStudent(student){
+            return `${student.name} avec une moyenne de ${student.moyenne}, sa meilleur note est ${student.best}, sa pire note est ${student.worst}`
+        }  
+
+        /*Enfin on affiche le top 3 des étudiants en faisant des appels de foncrion de formatStudent
+        avec comme paramètre student[x] 
+        il faut savoir que grace à student.sort(compareStudent) le classement etait déjà etabli ce pourquoi on a juste à donner le nom des clés en question */
+
+        console.log(`Top 3 des etudiants
+        1: ${formatStudent(students[0])}
+        2: ${formatStudent(students[1])}
+        3: ${formatStudent(students[2])}
+        
+        `)
+
+</script>
+-->
+
+
+<!--  EXEMPLE DE sort
+
+
+<script>
+    const notes = [19, 20, 12, 13, 15, 20, 8]
+    function sort(callbackFunction) {
+    // sort with -1, 0, 1
+    for (let i = 0; i < notes.length; i++) {
+        for (let j = 0; j < notes.length - 1; j++) {
+            if (callbackFunction(notes[j], notes[j + 1]) > 0) {
+                let temp = notes[j]
+                notes[j] = notes[j + 1]
+                notes[j + 1] = temp
+            }
+        }
+    }
+}
+
+
+const ascending = (a, b) => a - b
+const descending = (a, b) => b - a
+
+sort(ascending)
+console.log(notes)
+
+sort(descending)
+console.log(notes)
+</script>
+-->
+
+<!-- Test 
+
+<script>
+    const classe = [
+        {
+            name: 'Zanetti',
+            notes: 91
+        },
+        {
+            name: 'Messi',
+            notes: 98
+        },
+        {
+            name: 'Mascherano',
+            notes: 88
+        },
+    ]
+
+    function compare(a, b){
+       return  a.notes - b.notes
+    }
+
+    console.log(classe.sort(compare))
+
+
+</script>
+-->
+
+<!-- 
+On va créer une const phrase qui admetera une citation
+L'objectif est de créer un objet qui contiendra les mots en clé avec leur fréquence 
+        ctd le nombre de fois que le mot apparait dans la phrase 
+ On ne prendra pas en compte les majuscules ctd si le mot apparait avec et sans Maj 
+        on considerera qu'il apparait 2 fois
+    On verra aussi pour retirer les caractères speciaux -->
+
+<!-- Exemple de la methode split() qui permet de separer une chaine de caractère en clé de tableau 
+
+
+<script>
+    function splitString(stringToSplit, separator) {
+  var arrayOfStrings = stringToSplit.split(separator);
+
+  console.log(`La chaine d'origine est : ${stringToSplit}`);
+  console.log(`Le délimiteur est : ${separator}`);
+  console.log(
+    `Le tableau comporte ${arrayOfStrings.length} elements : `,
+    arrayOfStrings.join(" / "),
+  );
+}
+
+var tempestString = "Oh brave new world that has such people in it.";
+var monthString = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+
+var espace = " ";
+var virgule = ",";
+
+splitString(tempestString, espace);
+splitString(tempestString);
+splitString(monthString, virgule);
+
+</script>
+-->
+
+
+<!--
+<script>
+    /*
+
+const phrase = `Ces pédés d'condés ne me questionnent plus J'ai trop baisé, beautés ne m'impressionnent plus J'envoie du gaz, il y a plus d'ONUDans l'XVI, dans la rue, j'suis le plus connu Que des indigènes dans le BM (bang) Que des strings ficelles dans les DM (bang)`
+const frequencies = {}
+const ignored = [',','?',':','!','...']
+let cleanPhrase = phrase.toLowerCase()
+for (let character of ignored){
+cleanPhrase = cleanPhrase.replaceAll(character,'')
+}
+const words = cleanPhrase.split(' ') 
+
+for(let word of words){
+    if(frequencies[word]){
+        frequencies[word]++
+    }else{
+        frequencies[word]=1
+    }
+
+}
+
+const frequenciesArray = []
+for (let k in frequencies){
+    frequenciesArray.push({
+        word : k,
+        count: frequencies[k]
+    })
+}
+frequenciesArray.sort((a,b)=> b.count -a.count)
+
+console.log(frequenciesArray)
+*/
+
+</script>
+
+-->
+
+
+<!--
+<script>
+
+/*Mon Test
+On veut Créer une equipe de foot de 11 joueur
+chaque joueur  à 4 types  de stats :
+    -Vitesse
+    -puissance 
+    -resistance
+    -technique
+    +Une note Global qui est la moyenne de la veuleur des stats 
+On fera un classement des meileurs joueurs*/
+
+function moyenne(notes){
+    let sum = 0
+            for (let note of notes){
+                sum = sum + note
+            }
+            return sum / notes.length
+        }
+
+function stat(v,p,t,r){ 
+    
+    const Statistic = [
+        {Vitesse:v,Puissance:p,Technique:t,Resistance:r}
+    ]
+    
+    const MTR = [v,p,t,r]
+    const Data=Statistic
+
+    for(let d of Data){
+    d.Note = moyenne(MTR)
+    }
+    return Data            
+}
+
+
+const squad = [
+                {'Diego Milito':stat(86,92,84,79)},
+                
+]
+
+console.log (squad)
+
+</script>
+-->
+
+
+<!-- Les classes -->
+
+<!--
+<script>
+
+    const moyenne = (notes) => {  // La fonction moyenne peut etre appellé en tant que methode d'une classe 
+
+            let sum = 0
+                for (let note of notes){
+                    sum = sum + note
+                    }
+                    return sum / notes.length
+
+    }
+
+
+  class Student{   // class Permet de créer un prototype qui ser utilisé pour injecter des proprioté et des methodes
+    ecole='Jules Ferry'
+    _notes = []
+   
+    
+
+    constructor(firstname, lastname){ // Permet de definir comment nos objets seront initialisés
+        //ces instences son propre aux objets auxquel  elle feront reference ex: Jane , John
+        this.firstname = firstname
+        this.lastname = lastname
+    }
+
+    set notes (v){
+        if (Array.isArray(v)){
+            this._notes = v
+        }else{
+            console.log('ceci n\'est pas un tableau chef')
+        }
+    }
+
+    get name (){  // les Seteur et geteur permettent de plus facilement gerer l'affichage 
+        return `${this.firstname} ${this.lastname}`
+    }
+
+     canPass(){
+        return moyenne(this._notes) >= Student.moyenne
+    }
+
+    static moyenne = 10  // Permet de creeer une proprité disponilbe pour toute la classe
+  }
+
+  class SuperStudent extends Student { // Principe d'heritage qui permet de recuperer une classe mère en la modifiant à sa guise son la corompre 
+    constructor(firstname,lastname, notes){
+        super (firstname,lastname)
+        this._notes = notes
+    }
+
+    canPass() {
+        return super.canPass()
+    }
+    
+    get name (){
+        return 'Super ' + super.name
+    }
+  }
+  
+
+  const john = new SuperStudent('John','Doe',[2,8,10])
+  const jane = new Student('Jane','Doe')
+  jane.notes = [10,15,16]
+  console.log(john.name)
+  
+
+  
+  
+</script>
+-->
+
+<!--
+    TP : Forme géométrique
+    -On va créer une classe rectangle qui sera initialisé par une largeur et une hauteur
+    -On aura un Get perimeter qui permetera d'obtenir le perimetre de notre rectangle (p=2l+2h)
+    -On aura une methode isValid qui permetera de savoir si notre rectangle est valide 
+    il renverra false si notre rectangle n'est pas un valide
+    
+    -Ensuite on fera le système d'heritage qui permeterra de créer la classe square qui permeterra de representer un carré
+    on utilisera le système extend pour reutiliser les methode et propriétés de la classe mère 
+    rappel: un carré c'est un rectangle qui a la meme largeur et la meme hauteur
+
+    -Enfin on va faire une methode isBiggerThan qui sera utilisable sur les 2 classe
+    on va comparer le perimètre du carré et du rectangle 
+
+
+-->
+
+<!--
+<script>
+
+    function isV(h,l){
+        if( h>=0 && l>=0 && h!==l){
+            console.log('Ceci est un rectangle')
+            return true
+        }else{
+            console.log('Ceci n\'est pas un rectangle')
+            return false
+        }
+    }
+    
+    
+    class Rectangle {
+
+        constructor(width,height){
+            this.width = width
+            this.height = height
+        }
+
+        get perimeter() {
+            return((this.width+this.height)*2)
+        }
+
+        get isValid (){
+                    return isV(this.width,this.height)
+        }
+    }
+
+    class Square extends Rectangle {
+        constructor(width){
+            super(width,width)
+        }
+
+        get perimeter(){
+            return super.perimeter
+        }
+
+        isBiggerThan(rectangle){
+            if(rectangle.perimeter>super.perimeter){
+                console.log('Le rectangle a un + grand perimetre que le carré')
+            }else{
+                console.log('Le carré a un + grand perimetre que le rectangle')
+            }
+        }
+    }
+
+    const r = new Rectangle (10,20)
+    console.log(r.perimeter)
+    console.log(r.isValid)
+    const r2 = new Rectangle(-10, 20 )
+    console.log (r2.isValid)
+    const c = new Square(10)
+    console.log(c.perimeter)
+    console.log(c.isBiggerThan(r))
+
+</script>
+-->
+
+<!--
+-On va créer une classe Book qui sera instancié par son titre de livre et son nombre de page 
+-On affichera le nombre de page
+-On créera un méthode nextPage() qui tournera la page à chaue fois
+-on  va créer une méthode b.close qui va reset les pages à 0
+
+-->
+
+<!--
+
+<script>
+
+
+    class Book{
+        page = 1
+
+        constructor(title,totalPage){
+            this.title = title
+            this.totalPage=totalPage
+        }
+     
+            
+        nextPage(){
+            return this.page++
+        }
+
+        close(){
+            return this.page = 1
+        }
+    }   
+    
+    class Library extends Book {
+        books = []
+
+        addBook(book){
+            this.books.push(book)
+      }
+
+        addBooks(books){
+            for(let book of books){
+                this.addBook(book)
+            }
+      }
+
+     
+      findBooksByLetter(letter){ 
+        
+        const found = []
+        for(let book of this.books){
+            if(book.title[0].toLowerCase() === letter.toLowerCase()){
+                found.push(book)
+            }
+        }
+        return found
+        
+
+        /*
+        return this.books.filter((book)=> { book.title[0].toLowerCase() === letter.toLowerCase()})
+*/
+      }
+
+      
+
+    }
+    
+
+
+
+    const b = new Book('Seigneur des anneaux',200)
+    console.log(b.page)
+    b.nextPage()
+    console.log(b.page)
+    b.close()
+    console.log(b.page)
+
+    const l = new Library()
+    l.addBook(b)
+    l.addBooks([
+        new Book('Ready player one',100),
+        new Book('Oui-Oui',10),
+        new Book('Sillage',50),
+    ])
+    console.log(l.findBooksByLetter('S'))
+
+</script>
+-->
+
+
+
+<!-- LES TIMERS -->
+<!--
+<script>
+   /*
+    console.log('Bonjour')
+    const t = setInterval(() => {
+    console.log('MAISON3I')},1000)
+    console.log(t)
+ */   
+
+/*
+// EXO 1 : Fonction decompte de 5 à 1
+        function decompte(n){
+           console.log(n)
+           const t = setInterval(() => {
+            n--
+            console.log(n)
+            if(n===0){clearInterval(t)}
+           },1000)
+        }
+
+        decompte(5)
+        */
+</script>
+-->
+
+
+<!--LES PROMISE -->
+<!--
+
+<script>
+    /*
+    const p =new Promise((resolve, reject)=> {
+     resolve(2)   
+    })
+    p.then((n)=>{
+        console.log('Le nombre',n)
+        return 5
+    }).then((n)=>{
+        console.log('Le nombre 2',n)
+    }).catch((e)=>{
+        console.log('Erreur',e) 
+    }).finally(()=> console.log ('aaa'))
+   */
+
+/*
+
+function wait (duration) {
+    return new Promise ((resolve, reject)=>
+    setTimeout(() => {
+        resolve(duration)
+    }, duration))
+}
+
+function waitAndFail (duration) {
+    return new Promise ((resolve, reject)=>
+    setTimeout(() => {
+        reject(duration)
+    }, duration))
+}
+
+
+
+/*
+wait(2000)
+.then(()=>{
+    console.log('Attente 2s')
+    return wait(1000)
+}).then(()=>{
+    console.log('Attente de 1s')
+    return waitAndFail(1000)
+}).catch(()=>{
+    console.log('error')
+})
+*/
+
+//// ASYNC ET AWAIT function 
+
+/*
+async function main(){
+    try{
+    await wait(2000) // waitAndFail
+    console.log('Bonjour')
+    const duration = await wait(2000)
+    console.log(`Duration: ${duration}`)
+    }catch(e){
+        console.log('Error')
+    }
+}
+main()
+
+*/
+//Pormise 
+/*
+
+Promise.all([wait(1000),waitAndFail(2000)])
+    .then(console.log)
+    .catch(console.log)
+
+Promise.allSettled([wait(3000),waitAndFail(4000)])
+    .then(console.log)
+   
+*/
+
+</script>
+-->
+
+
+<!--UTLISATION DE fetch() 
+
+<script>
+/*
+    async function fetchUsers () {
+        const r = await fetch ('https://jsonplaceholder.typicode.com/posts?_limit=5')
+        if (r.ok === true){
+            return r.json();
+        }
+        throw new Error('Impossible de contacter le seveur')
+    }
+
+    fetchUsers().then(users => console.log(users))
+*/
+
+    async function fetchUsers (){
+        const r = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10',{
+            method: 'POST',
+            headers: {
+                "Accept": 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({title:'Mon premier titre'})
+        })
+            
+        if (r.ok === true) {
+            return r.json();
+        }
+        throw new Error('Impossible de contacter le serveur')
+    }
+
+    fetchUsers().then(users => console.log(users))
+    
+
+const a = new AbortController()
+Promise.race([  
+                fetch('https://jsonplaceholder.typicode.com/posts?_limit=5&_delay=2000',{
+                    signal: a.signal
+                }),
+                fetch('https://jsonplaceholder.typicode.com/users?_limit=3',{
+                    signal : a.signal
+                })
+            ]).then(r=> r.json()).then(body => {
+                a.abort()
+                console.log(body)
+            })
+   
+</script>
+-->
+
+<!--
+
+<script>
+/*
+Foncion qui permet de rajouter des jour à une date enoncée 
+
+mon code 
+
+ 
+
+    function addDays (date, days) {
+
+        const d = date.getUTCDate()
+        const sum = d + days
+        console.log (date.getUTCDate())
+
+        date.setUTCDate(sum)
+        console.log(date.getUTCDate())
+        return date
+    }
+    const today = new Date(Date.UTC(2024,4,4))
+    console.log(today)
+
+    const tomorrow = addDays(today, 30)
+   
+    console.log(tomorrow)
+*/    
+
+/* Correction */
+
+function addDays (date, days){
+    const newDate = new Date(date.getTime())
+    newDate.setDate(newDate.getDate() + days)
+    return newDate
+  
+}
+
+const MONTH = 'month'
+const DAYS ='days'
+const YEARS ='years'
+
+function addInterval(date,n,unit){
+    const newDate = new Date(date.getTime())
+    const newMonth = new Date(date.getMonth())
+    const newYears = new Date(date.getFullYear())
+
+    if(unit === DAYS){
+        newDate.setDate(newDate.getDate()+ n)
+        return newDate
+
+    }else if(unit === MONTH){
+        newDate.setMonth(newDate.getMonth()+ n)
+        return newDate
+        
+    }else if(unit === YEARS){
+        newDate.setFullYear(newDate.getFullYear()+ n)
+        return newDate
+    }else{
+        return console.log('error')
+    }
+}
+
+
+
+const today = new Date();
+const futur =  addInterval (today,15,YEARS)
+console.log(today.toLocaleString())
+console.log(futur.toLocaleString())
+
+</script>
+-->
+
+
+<!--
+<script>
+    /*Manière plus rapide de faire l'exercice precédent*/
+    const MONTH = 1
+    const DAYS = 2
+    const YEARS = 0
+
+
+    function addInterval(date, n , unit){
+        const parts = [
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+            date.getMilliseconds()
+        ]
+        parts[unit] += n
+        return new Date(...parts)
+
+    }
+
+    const today = new Date();
+    const futur = addInterval(today,2,YEARS)
+    console.log(today)
+    console.log(futur)
+
+
+</script>
+-->
+<!--
+<script>
+    
+      
+    const YEARS = 0 
+    const MONTH = 1
+    const DAYS = 2
+    const HOURS = 3
+    const MINUTES = 4
+  
+
+
+    function addInterval(date, interval){
+        const parts = [
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+            date.getMilliseconds()
+        ]
+        for (const[unit,value] of Object.entries(interval))
+            parts [unit] += value
+        return new Date(...parts)
+
+    }
+
+    const today = new Date();
+    const futur = addInterval(today,{
+        [DAYS]:4,
+        [HOURS]:9,
+        [MINUTES]:35,
+
+    })
+    console.log(today.toLocaleString())
+    console.log(futur.toLocaleString())
+
+// affiche quand qu'elle que chose vas sortir zehma disponilbe dans x temps 
+
+console.log(   (((futur.getTime() - Date.now() ) / 1000)/ 3600)/24     )
+
+
+</script>
+-->
+
+
+<!--DEBUT DE JAVA SCRIPT COTE NAVIGATEUR 
+ETUDE SUR LE DOM (document oject model) -->
+
+<!--PARTIE 1 -->
+<!--
+<style>
+.red{
+    color: red;
+}
+.bold{
+    font-weight: bold;
+}
+</style>
+
+<script src="app.js"type="module"> </script>
+</head>
+
+<body>
+    
+    <div id="hello"> 
+        Boujour les gens
+    </div>
+
+    <ul>
+        <br>
+        <script>
+            console.log()
+        </script>
+        <li class="red ">1. I have to improve myself </li>
+        <li>2. Next month i will prabably retire from amazon for ever</li>
+        <li>3. I'm genuinely sorry of my daughter who disturbed the whole class </li>
+        <br>
+    </ul>
+-->
+
+<!--PARTIE 2 -->
+
+<!-- Styliser un element -->
+<!--
+    <script src="app.js"type="module"> </script>
+    </head>
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+    <body>
+        <!--
+        <ul>
+            <li>1. I have to improve myself </li>
+            <li>2. Next month i will prabably retire from amazon for ever</li>
+            <li>3. I'm genuinely sorry of my daughter who disturbed the whole class </li>
+        </ul>
+        
+        <div id="lastPosts">
+
+        </div>
+
+--> 
+
+<!--
+
+<script src="app.js"type="module"> </script>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: lightgray;
+    }
+
+    .spoiler{
+        background-color: black;
+        color: black;
+        cursor: pointer;
+    }
+    .spoiler::selection{
+        color: rgba(0,0,0,0);
+    }
+
+    span{
+        transition: 0.5s;
+    }
+
+</style>
+</head>
+<body>
+    <!--Exemple 1 -->
+    <!--
+    <button><span>Bonjour</span></button>
+    -->
+
+    <!--Exemple 2 -->
+    <!--
+    <button>Bonjour</button>
+    <button>Bonjour les gens</button>
+    -->
+
+
+    <!--Exemple 3 -->
+    <!--
+    <div>
+        <button>Bonjour (div)</button>
+    </div>
+
+    <button>Bonjour les gens</button>
+-->
+
+
+<!--LES FORMULAIRES-->
+<!--
+    <form action="">
+        <input type="text" name="firstname">
+        <button>Envoyer</button>
+    </form>
+-->
+
+<!--LES CHECKBOX--> 
+<!--
+    <form action="">
+        <input type="checkbox" name="firstname">
+        <button>Envoyer</button>
+    </form>
+--> 
+
+<!--LES SELECT -->
+<!--
+    <form action="">
+        <select multiple name="firstname" id="">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <button>Envoyer</button>
+    </form>
+-->    
+
+<!--EXERCICE SPOILER-->
+<!--
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Incidunt dolorem quibusdam atque sit tenetur! 
+             <span class="spoiler"> Similique et omnis dolore</span>officia labore aliquid expedita,
+            temporibus praesentium <span class="spoiler">quaerat doloribus laborum </span>quas maxime non!
+        </p>
+-->
+</body>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="app.js"type="module"> </script>
+</head>
+<body>
+
+    <section class="container pt-5" id="todolist">
+        
+        <form class="d-flex pb-4">
+            <input required="" class="form-control" type="text" placeholder="Acheter des patates..." name="title" data-com.bitwarden.browser.user-edited="yes">
+            <button class="btn btn-primary">Ajouter</button>
+        </form>
+
+
+        <main>
+            <div class="btn-group mb-4" role="group">
+                <button type="button" class=" btn btn-outline-primary active" data-filter="all">Toutes</button>
+                <button type="button" class=" btn btn-outline-primary" data-filter="todo">A faire</button>
+                <button type="button" class=" btn btn-outline-primary" data-filter="done">Faites</button>
+            </div>
+
+            <ul class="list-group">
+            <li class="todo list-group-item d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" id="todo-1">
+                <label class="ms-2 form-check-label" for="todo-1">
+                    Tâche à faire 2
+                </label>
+                <label class="ms-auto btn btn-danger btn-sm">
+                <i class="bi-trash">
+                </i>
+                </label>
+            </li>
+            <li class="todo list-group-item d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" id="todo-2">
+                <label class="ms-2 form-check-label" for="todo-2">
+                    Tâche à faire 1
+                </label>
+                <label class="ms-auto btn btn-danger btn-sm">
+                <i class="bi-trash">
+                </i>
+                </label>
+            </li>
+            </ul>
+
+            
+        </main>
+    </section>
+
+</body>
+</html>
